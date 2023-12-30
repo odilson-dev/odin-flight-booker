@@ -5,6 +5,24 @@
   <%= form.search_field :query %>
   <%= form.submit "Search" %>
   
+  <br>
+  <h2>All the airports</h2>
+  <%= select_tag(:airport_id, options_for_select(@airport_options)) %>
+
+  <h2>Arrival airports</h2>
+  <%= select_tag(:arriving_airport_id, options_for_select(@arriving_airport_options)) %>
+
+  <h2>Departure airports</h2>
+  <%= select_tag(:departure_airport_id, options_for_select(@departure_airport_options)) %>
+
+  <h2>Flight dates</h2>
+  <%= select_tag(:flight_date_id, options_for_select(@flight_date_options)) %><br>
+
+  <h2>Number of passengers</h2>
+  
+  <%= select_tag(:passenger_count, options_for_select([1, 2, 3, 4])) %>
+
+
 <% end %>
 
 
