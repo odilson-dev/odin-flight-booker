@@ -21,12 +21,18 @@
   
   <%= select_tag(:num_ticket, options_for_select([1, 2, 3, 4])) %>
 
-  <p> <%= @test %> </p>
-  <p> <%= @departure_code.class %> </p>
-
 
 <% end %>
 
+<p>Flights size: <%= @flights.size %></p>
 
-
+<% if @flights.empty? %>
+    <p>There is no matched flight<p>
+<% else %>
+    <ol>
+        <% @flights.each do |item| %>
+              <li><%= item %><li>
+        <% end %>
+    <ol>
+<% end %>
 
