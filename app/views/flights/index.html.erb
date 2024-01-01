@@ -29,7 +29,7 @@
 <% if @flights.empty? %>
     <p>There is no matched flight<p>
 <% else %>
-    <%= form_with url: "/search", method: :get do |form| %>
+    <%= form_with url: "/bookings/new", method: :get do |form| %>
         <% @flights.each do |item| %>
                 <% radio_button_id = "flight_to_#{item.id.to_s.parameterize(separator: '_')}" %>
                 <%= form.radio_button :flight, "#{item.id}", id: radio_button_id %>
