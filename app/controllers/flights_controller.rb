@@ -12,5 +12,7 @@ class FlightsController < ApplicationController
             departure_airport_id: params[:departure_code],
             arrival_airport_id: params[:arrival_code]
           )
+        
+        @number_of_passengers = params[:num_ticket]
     end
 end

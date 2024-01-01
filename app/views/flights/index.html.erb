@@ -29,10 +29,16 @@
 <% if @flights.empty? %>
     <p>There is no matched flight<p>
 <% else %>
-    <ol>
+    <%= form_with url: "/search", method: :get do |form| %>
         <% @flights.each do |item| %>
-              <li><%= item %></li>
+                <% radio_button_id = "flight_to_#{item.id.to_s.parameterize(separator: '_')}" %>
+                <%= form.radio_button :flight, "#{item.id}", id: radio_button_id %>
+                <%= form.label radio_button_id, "From #{item.departure_airport.name} to: #{item.arrival_airport.name} | Start datetime: #{item.start_datetime} | Flight duration #{item.flight_duration}" %><br>
+            
         <% end %>
-    <ol>
+        <input type="hidden" name="number_of_passengers" id="number_of_passengers" value=<%= @number_of_passengers%> />
+        
+        <input name="commit" type="submit" value="choosed-flight" data-disable-with="choosed-flight" />
+    <% end %>
+    
 <% end %>
-
