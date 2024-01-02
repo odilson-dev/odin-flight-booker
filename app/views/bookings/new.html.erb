@@ -1,0 +1,20 @@
+<h1>Create a new booking</h1>
+<p>Flight ID: <%= @flight_id %></p>
+<p>Departure Airport: <%= @flight_object.departure_airport.name %></p>
+<p>Arrival Airport: <%= @flight_object.arrival_airport.name %></p>
+<p>Date choosed: <%= @flight_object.start_datetime %></p>
+<p>Number of passengers: <%= @number_of_passengers %></p>
+
+<%= form_with model: @booking do |booking_form| %>
+  <%= booking_form.date_field :departure_date %>
+
+  <% @booking.passengers.each do |passenger| %>
+    <% booking_form.fields_for passenger, index: passenger.id do |passenger_form| %>
+        <%= passenger_form.text_field :name %>
+        <%= passenger_form.text_field :email %>
+    <% end %>
+  <% end %>
+
+  
+  <%= booking_form.submit %>
+<% end %>
