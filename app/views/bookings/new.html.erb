@@ -7,7 +7,7 @@
 
 <%= form_with model: @booking do |booking_form| %>
   <%= booking_form.date_field :departure_date %>
-<%= @booking.passengers.size %><br>
+  <%= booking_form.hidden_field :flight_number, value: @flight_id %>
 
   Passengers:
   <ul>
