@@ -7,14 +7,21 @@
 
 <%= form_with model: @booking do |booking_form| %>
   <%= booking_form.date_field :departure_date %>
+<%= @booking.passengers.size %><br>
 
-  <% @booking.passengers.each do |passenger| %>
-    <% booking_form.fields_for passenger, index: passenger.id do |passenger_form| %>
-        <%= passenger_form.text_field :name %>
-        <%= passenger_form.text_field :email %>
+  Passengers:
+  <ul>
+    <%= booking_form.fields_for :passengers do |passengers_form| %>
+      <li>
+        <%= passengers_form.label :name %>
+        <%= passengers_form.text_field :name %>
+
+        <%= passengers_form.label :email %>
+        <%= passengers_form.email_field :email %>
+      </li>
     <% end %>
-  <% end %>
+  </ul>
 
   
-  <%= booking_form.submit %>
+  <%= booking_form.submit "Confirm Booking" %>
 <% end %>
