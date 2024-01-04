@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
 
     def show
         @current_booking = Booking.find(params[:id])
+        
     end
 
     private

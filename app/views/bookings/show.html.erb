@@ -1,1 +1,17 @@
-<h1>Here is your booking details</h1>
+<h1>Your booking details</h1>
+
+<h1>Flight Number: <%= @current_booking.flight_number %><h1>
+<p>The departure date is : <%= @current_booking.departure_date %></p>
+<p>There is <%= @current_booking.passengers.size %> tickets for this booking<p>
+<ol>
+    <% @current_booking.passengers.each do |passenger| %>
+        <li>
+            <ul>
+             <li><%= passenger.name %></li>
+              <li><%= passenger.email%></li>
+            </ul><br>
+           
+            
+        </li>
+    <% end %>
+<ol>
