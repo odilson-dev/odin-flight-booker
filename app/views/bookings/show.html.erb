@@ -3,6 +3,8 @@
 <h1>Flight Number: <%= @current_booking.flight_number %><h1>
 <p>The departure date is : <%= @current_booking.departure_date %></p>
 <p>There is <%= @current_booking.passengers.size %> tickets for this booking<p>
+
+
 <ol>
     <% @current_booking.passengers.each do |passenger| %>
         <li>
@@ -15,3 +17,10 @@
         </li>
     <% end %>
 <ol>
+
+<div data-controller="passenger">
+  <button data-action="click->passenger#toggle">Add passegnger</button>
+  <div data-passenger-target="content">
+    <p>This content can be toggled</p>
+  </div>
+</div>
